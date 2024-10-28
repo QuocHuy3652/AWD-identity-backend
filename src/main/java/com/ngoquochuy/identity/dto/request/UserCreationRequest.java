@@ -17,4 +17,6 @@ public class UserCreationRequest {
     String email;
     @Size(min = 7, message = "PW_VALIDATION")
     String password;
+    @NotBlank(message = "EMPTY_CONFIRM_PASSWORD")
+    String confirmPassword;
 }

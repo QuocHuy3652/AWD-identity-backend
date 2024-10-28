@@ -16,6 +16,8 @@ public enum ErrorCode {
     EMPTY_EMAIL(1002, "Email cannot be empty", HttpStatus.BAD_REQUEST),
     INVALID_EMAIL(1003, "Email is not in correct format", HttpStatus.BAD_REQUEST),
     PW_VALIDATION(1004, "Password must be at least 7 characters", HttpStatus.BAD_REQUEST),
+    PW_CONFIRMATION(1005, "Password is different from confirm password", HttpStatus.BAD_REQUEST),
+    EMPTY_CONFIRM_PASSWORD(1006, "Confirm password cannot be empty", HttpStatus.BAD_REQUEST),
     ;
 
     int code;

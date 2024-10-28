@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +28,9 @@ public class UserService {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new AppException(ErrorCode.USER_EXISTED);
         }
+        if (!request.getPassword().equals(request.getConfirmPassword())) {
+            throw new AppException(ErrorCode.PW_CONFIRMATION);
+        }
 
         User user = userMapper.toUser(request);
         user.setCreatedAt(LocalDate.now());
@@ -34,6 +39,10 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         return userMapper.toUserResponse(userRepository.save(user));
+    }
+
+    public List<UserResponse> getAllUser() {
+        return userRepository.findAll().stream().map(userMapper::toUserResponse).collect(Collectors.toList());
     }
 
 }
