@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ngoquochuy</groupId>
 	<artifactId>identity</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>identity</name>
 	<description>Identity service</description>
 	<url/>
