@@ -15,7 +15,5 @@ import java.time.LocalDate;
 public class UserResponse {
     String id;
     String email;
-    String password;
-    LocalDate createdAt;;
-
+    LocalDate createdAt;
 }
